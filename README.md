@@ -30,6 +30,14 @@ docker run -d \
 
 or you can refer to this link: `https://hub.docker.com/r/tykio/tyk-gateway/`
 
+After that, you need to compile your custom plugins with Tyk plugin compiler. You can using this:
+
+```
+docker run -v `pwd`:/go/src/plugin-build tykio/tyk-plugin-compiler addCustomHeader.so
+```
+
+after you compile the plugins, just restart your gateway.
+
 You can try on your Postman, visit this link `http://localhost:8080/httpbin/` with method GET. You can get the result with an extra header `"Foo": "Bar"` like this:
 
 ```
